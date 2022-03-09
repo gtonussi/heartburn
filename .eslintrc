@@ -33,64 +33,6 @@
     "react/no-array-index-key": "error",
     "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
     "radix": ["error", "as-needed"],
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/naming-convention": [
-      "error",
-      {
-        "selector": "default",
-        "format": ["camelCase"]
-      },
-      {
-        "selector": "variable",
-        "format": ["camelCase"]
-      },
-      {
-        "selector": "variable",
-        "modifiers": ["const"],
-        "format": ["camelCase", "UPPER_CASE"]
-      },
-      {
-        "selector": "variable",
-        "types": ["boolean"],
-        "format": ["PascalCase"],
-        "prefix": ["is", "should", "has", "can", "did", "will"]
-      },
-      {
-        "selector": "variable",
-        "types": ["function"],
-        "format": ["camelCase", "PascalCase"]
-      },
-      {
-        "selector": "function",
-        "format": ["camelCase", "PascalCase"]
-      },
-      {
-        "selector": "parameter",
-        "format": ["camelCase"],
-        "leadingUnderscore": "allow"
-      },
-      {
-        "selector": "memberLike",
-        "modifiers": ["private"],
-        "format": ["camelCase"],
-        "leadingUnderscore": "require"
-      },
-      {
-        "selector": "enum",
-        "format": ["UPPER_CASE"]
-      },
-      {
-        "selector": "enumMember",
-        "format": ["UPPER_CASE"]
-      },
-      {
-        "selector": "typeLike",
-        "format": ["PascalCase"]
-      },
-      {
-        "selector": "property",
-        "format": ["camelCase"]
-      }
-    ]
+    "@typescript-eslint/explicit-module-boundary-types": "off"
   }
 }

@@ -1,2 +1,5 @@
 export { App } from "./App"
+export { Button } from "./Button"
+export { CenterBox } from "./CenterBox"
 export { ErrorBoundary } from "./ErrorBoundary"
+export { QuestionCard } from "./QuestionCard"

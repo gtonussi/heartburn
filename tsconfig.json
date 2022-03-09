@@ -24,6 +24,6 @@
     "baseUrl": "src",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src", "**/*.ts", "**/*.tsx"],
+  "include": ["src", "**/*.ts", "**/*.tsx", "src/**/*"],
   "exclude": ["node_modules"]
 }
