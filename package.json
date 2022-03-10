@@ -9,7 +9,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint:fix": "eslint -c .eslintrc --fix --ext js,jsx,ts,tsx src/.",
-    "prettier:check": "prettier --check './src/.",
+    "prettier:check": "prettier --check src/.",
     "prettier:fix": "prettier --write --ignore-unknown src/.",
     "postinstall": "husky install"
   },

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 import { useEffect } from "react"
 
-import { CenterBox, QuestionCard } from "components"
+import { CenterBox, OutcomeCard, QuestionCard } from "components"
 import { Questionnaire, Question } from "interfaces"
 import { useQuiz } from "hooks"
 
@@ -9,13 +9,18 @@ import heartburn from "data/heartburn.json"
 import * as S from "./App.styles"
 
 export const App = () => {
-  const { questions } = heartburn as Questionnaire
+  const { questions, outcomes } = heartburn as Questionnaire
 
-  const { currentQuestion, setCurrentQuestion } = useQuiz()
+  const { currentQuestion, setCurrentQuestion, setFirstQuestion, result } =
+    useQuiz()
 
   useEffect(() => {
     setCurrentQuestion(questions[0].id)
   }, [questions, setCurrentQuestion])
+
+  useEffect(() => {
+    setFirstQuestion(questions[0].id)
+  }, [questions, setFirstQuestion])
 
   return (
     <main>
@@ -30,6 +35,17 @@ export const App = () => {
               total={questions.length}
             />
           ))}
+          {result.length > 0 &&
+            outcomes
+              .filter((o) => o.id === result)
+              .map((outcome) => (
+                <OutcomeCard
+                  key={outcome.id}
+                  isActive
+                  outcome={outcome}
+                  title="Heartburn Checker"
+                />
+              ))}
         </S.QuestionCardWrapper>
       </CenterBox>
     </main>
