@@ -19,12 +19,38 @@ export const QuestionCardContainer = styled.article<I.QuestionCardContainer>`
 
 export const QuestionCardHeader = styled.div`
   width: 100%;
+`
 
-  > div {
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+export const QuestionCardProgress = styled.div`
+  position: relative;
+
+  hr {
+    background-color: #416172;
+    border: none;
+    height: 1px;
+    margin-top: 1rem;
+    opacity: 10%;
+    position: absolute;
+    transition: all 200ms ease;
+    width: 100%;
+
+    & + hr {
+      background-color: #6accba;
+      height: 2px;
+      opacity: 100%;
+    }
+  }
+`
+
+export const QuestionCardTitle = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  button {
+    border: none;
+    background-color: transparent;
   }
 
   h1 {
@@ -45,14 +71,6 @@ export const QuestionCardHeader = styled.div`
     path {
       transition: all 150ms ease;
     }
-  }
-
-  hr {
-    background-color: #416172;
-    height: 1px;
-    margin-top: 1rem;
-    opacity: 10%;
-    width: 100%;
   }
 `
 

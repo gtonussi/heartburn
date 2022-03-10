@@ -1,22 +1,21 @@
 /* eslint-disable no-console */
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 
 import { CenterBox, QuestionCard } from "components"
-import { FormData, Question } from "interfaces"
+import { Questionnaire, Question } from "interfaces"
+import { useQuiz } from "hooks"
 
 import heartburn from "data/heartburn.json"
-
 import * as S from "./App.styles"
 
 export const App = () => {
-  const { questions } = heartburn as FormData
+  const { questions } = heartburn as Questionnaire
 
-  const [currentQuestion] = useState(questions[0].id)
+  const { currentQuestion, setCurrentQuestion } = useQuiz()
 
   useEffect(() => {
-    console.log(heartburn)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    setCurrentQuestion(questions[0].id)
+  }, [questions, setCurrentQuestion])
 
   return (
     <main>
@@ -28,6 +27,7 @@ export const App = () => {
               isActive={question.id === currentQuestion}
               question={question}
               title="Heartburn Checker"
+              total={questions.length}
             />
           ))}
         </S.QuestionCardWrapper>

@@ -7,24 +7,25 @@ export const Button: React.FC<I.ButtonProps> = ({
   borderRadius = "square",
   buttonType = "primary",
   children,
+  disabled = false,
   icon,
-  shouldCheck = false,
+  onClick,
+  isChecked = false,
 }) => {
   return (
     <S.ButtonContainer
       borderRadius={borderRadius}
       buttonType={buttonType}
+      isChecked={isChecked}
+      disabled={disabled}
       icon={icon}
+      onClick={onClick}
       // eslint-disable-next-line prettier/prettier
     >
       {icon && <span />}
       {children}
       {icon && icon}
-      {!icon && shouldCheck && (
-        <S.ButtonCheckedWrapper>
-          <Checked />
-        </S.ButtonCheckedWrapper>
-      )}
+      {!icon && isChecked && <Checked />}
     </S.ButtonContainer>
   )
 }

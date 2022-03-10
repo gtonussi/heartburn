@@ -37,6 +37,34 @@ const modifiers = {
       }
     `,
   },
+  disabled: css`
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: #fff;
+    pointer-events: none;
+  `,
+  checked: css`
+    &:hover,
+    &:active,
+    &:focus {
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+    }
+    svg {
+      position: absolute;
+      right: 0.5rem;
+      top: calc(0.5rem + 2px);
+      height: 1.5rem;
+      width: auto;
+
+      path {
+        transition: all 150ms ease;
+      }
+    }
+  `,
 }
 
 export const ButtonContainer = styled.button<I.ButtonProps>`
@@ -60,9 +88,11 @@ export const ButtonContainer = styled.button<I.ButtonProps>`
 
   // --------- modifiers
 
-  ${({ borderRadius, buttonType, icon }) => css`
+  ${({ borderRadius, buttonType, isChecked, disabled, icon }) => css`
     ${!!buttonType && modifiers.buttonType[buttonType]}
     ${!!borderRadius && modifiers.borderRadius[borderRadius]}
+    ${disabled && modifiers.disabled}
+    ${isChecked && modifiers.checked}
     ${icon ? "justify-content: space-between;" : "justify-content: center;"}
   `}
 `
@@ -75,5 +105,15 @@ export const ButtonCheckedWrapper = styled.span`
   svg {
     height: 1.5rem;
     width: auto;
+
+    path {
+      transition: all 150ms ease;
+
+      &:hover,
+      &:active,
+      &:focus {
+        fill: #fff;
+      }
+    }
   }
 `

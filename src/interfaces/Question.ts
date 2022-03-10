@@ -10,6 +10,7 @@ export interface Question {
   ]
   next: [
     {
+      answered?: string
       next_question: string
     },
   ]
