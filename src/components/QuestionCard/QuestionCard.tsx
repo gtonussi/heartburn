@@ -22,16 +22,7 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
   } = useQuiz()
 
   const getNextQuestion = () => {
-    // First, checks if it is the last one and, if so,
-    // chooses the correct outcome and populate it on quiz hook.
-    if (!question.next[0].next_question) {
-      return ""
-    }
-
-    // Then function will check for the the number of 'nexts' and,
-    // if there's only one, it will be returned.
-    // Else, a loop will pull out the correct one based
-    // on user's answer and return it.
+    if (!question.next[0].next_question) return ""
 
     if (question.next.length === 1) return question.next[0].next_question
 
@@ -57,9 +48,6 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
   }
 
   const getAnswerScore = () => {
-    // Function will loop through the answers
-    // and add the score if it matches the currentAnswer
-
     let questionScore = 0
 
     question.answers.forEach((a) => {
@@ -72,8 +60,6 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
   }
 
   const handleNextButton = () => {
-    // Adds the user data to an array with all info,
-    // so there is a register of activity.
     setBreadcrumbs((prev) => [
       ...prev,
       {
@@ -83,58 +69,41 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
       },
     ])
 
-    // Changes the question to be presented to user,
-    // based on the 'next' key.
     setCurrentQuestion(getNextQuestion())
 
-    // In case the current card turns out to be the last,
-    // function will populate the outcome so the OutcomeCard will pop in.
     if (getNextQuestion() === "") {
-      for (let i = 0; i < question.next.length; i++) {
-        // @ts-expect-error: Property can't be undefined
-        // as it is being checked right before use.
-        if (question.next[i].max_score && score <= question.next[i].max_score) {
-          setResult(question.next[i].outcome as string)
-          break
-        } else if (question.next[i].max_score === undefined) {
-          setResult(question.next[i].outcome as string)
+      // Was the last question.
+      question.next.some((q) => {
+        if (q.max_score !== undefined && score <= q.max_score) {
+          setResult(q.outcome as string)
+          return true
         }
-      }
+
+        if (q.max_score === undefined) {
+          setResult(q.outcome as string)
+          return true
+        }
+
+        return false
+      })
     }
 
-    // Finally, sets the currentAnswer to none,
-    // so it is ready for a new interaction.
     setCurrentAnswer("")
   }
 
   const handlePreviousButton = () => {
-    // Updates the breadcrumbs to register user's activity.
     setBreadcrumbs(getNewBreadcrumb())
 
-    // Updates the currentQuestion passing the last item
-    // of breadcrumb, and present it to user.
     setCurrentQuestion(breadcrumbs[breadcrumbs.length - 1].question)
 
-    // Finally, sets the currentAnswer to none,
-    // so it is ready for a new interaction.
     setCurrentAnswer("")
   }
 
   return (
     <S.QuestionCardContainer data-cy="question-card">
       <S.QuestionCardHeader>
-        <S.QuestionCardTitle>
-          {/* Changing opacity instead of rendering only if true
-          prevents the title from moving horizontally on second slide */}
-          <button
-            style={{
-              opacity: `${breadcrumbs.length >= 1 ? 100 : 0}%`,
-              pointerEvents: `${breadcrumbs.length >= 1 ? "auto" : "none"}`,
-            }}
-            type="button"
-            onClick={handlePreviousButton}
-            // eslint-disable-next-line prettier/prettier
-          >
+        <S.QuestionCardTitle isFirst={!(breadcrumbs.length >= 1)}>
+          <button type="button" onClick={handlePreviousButton}>
             <ArrowBack />
           </button>
           <h1>{title}</h1>
@@ -158,9 +127,7 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
               buttonType="secondary"
               borderRadius="round"
               onClick={() => setCurrentAnswer(answer.id)}
-              checked={currentAnswer === answer.id}
-              // eslint-disable-next-line prettier/prettier
-            >
+              checked={currentAnswer === answer.id}>
               {answer.label}
             </Button>
           ))}
@@ -171,9 +138,7 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
         <Button
           disabled={currentAnswer.length === 0}
           icon={<ArrowForward />}
-          onClick={handleNextButton}
-          // eslint-disable-next-line prettier/prettier
-        >
+          onClick={handleNextButton}>
           Next
         </Button>
       </S.QuestionCardFooter>

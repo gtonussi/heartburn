@@ -1,4 +1,6 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+
+import * as I from "./QuestionCard.interfaces"
 
 export const QuestionCardContainer = styled.article`
   background-color: #fff;
@@ -40,7 +42,7 @@ export const QuestionCardProgress = styled.div`
   }
 `
 
-export const QuestionCardTitle = styled.div`
+export const QuestionCardTitle = styled.div<I.QuestionCardTitle>`
   align-items: center;
   display: flex;
   flex-direction: row;
@@ -49,6 +51,13 @@ export const QuestionCardTitle = styled.div`
   button {
     border: none;
     background-color: transparent;
+
+    ${({ isFirst }) =>
+      isFirst &&
+      css`
+        opacity: 0;
+        pointer-events: none;
+      `}
   }
 
   h1 {

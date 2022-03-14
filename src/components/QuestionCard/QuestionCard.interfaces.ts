@@ -5,3 +5,7 @@ export interface QuestionCardProps {
   title: string
   total: number
 }
+
+export interface QuestionCardTitle {
+  isFirst: boolean
+}

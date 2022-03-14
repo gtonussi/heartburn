@@ -48,11 +48,7 @@ export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
     <S.OutcomeCardContainer data-cy="outcome-card">
       <S.OutcomeCardHeader>
         <S.OutcomeCardTitle>
-          <button
-            type="button"
-            onClick={handlePreviousButton}
-            // eslint-disable-next-line prettier/prettier
-          >
+          <button type="button" onClick={handlePreviousButton}>
             <ArrowBack />
           </button>
           <h1>{title}</h1>
@@ -72,9 +68,7 @@ export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
         {outcome.show_booking_button && (
           <Button
             icon={<ArrowForward />}
-            onClick={() => window.open("https://www.kry.se/", "_blank")}
-            // eslint-disable-next-line prettier/prettier
-          >
+            onClick={() => window.open("https://www.kry.se/", "_blank")}>
             Book a meeting
           </Button>
         )}

@@ -19,9 +19,7 @@ export const Button: React.FC<I.ButtonProps> = ({
       checked={checked}
       disabled={disabled}
       icon={icon}
-      onClick={onClick}
-      // eslint-disable-next-line prettier/prettier
-    >
+      onClick={onClick}>
       {icon && <span />}
       {children}
       {icon && icon}
