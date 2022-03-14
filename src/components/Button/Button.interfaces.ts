@@ -6,7 +6,7 @@ import { ButtonHTMLAttributes } from "react"
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   borderRadius?: "round" | "square"
   buttonType?: "primary" | "secondary"
+  checked?: boolean
   disabled?: boolean
   icon?: React.ReactNode
-  isChecked?: boolean
 }

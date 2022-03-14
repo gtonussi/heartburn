@@ -44,15 +44,6 @@ const modifiers = {
     pointer-events: none;
   `,
   checked: css`
-    &:hover,
-    &:active,
-    &:focus {
-      svg {
-        path {
-          fill: #fff;
-        }
-      }
-    }
     svg {
       position: absolute;
       right: 0.5rem;
@@ -61,10 +52,39 @@ const modifiers = {
       width: auto;
 
       path {
-        transition: all 150ms ease;
+        transition: all 200ms ease;
       }
     }
   `,
+  checkedType: {
+    primary: css`
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+      &:hover,
+      &:active,
+      &:focus {
+        svg {
+          path {
+            fill: #6accba;
+          }
+        }
+      }
+    `,
+    secondary: css`
+      &:hover,
+      &:active,
+      &:focus {
+        svg {
+          path {
+            fill: #fff;
+          }
+        }
+      }
+    `,
+  },
 }
 
 export const ButtonContainer = styled.button<I.ButtonProps>`
@@ -88,11 +108,12 @@ export const ButtonContainer = styled.button<I.ButtonProps>`
 
   // --------- modifiers
 
-  ${({ borderRadius, buttonType, isChecked, disabled, icon }) => css`
+  ${({ borderRadius, buttonType, checked, disabled, icon }) => css`
     ${!!buttonType && modifiers.buttonType[buttonType]}
     ${!!borderRadius && modifiers.borderRadius[borderRadius]}
     ${disabled && modifiers.disabled}
-    ${isChecked && modifiers.checked}
+    ${checked && modifiers.checked}
+    ${checked && !!buttonType && modifiers.checkedType[buttonType]}
     ${icon ? "justify-content: space-between;" : "justify-content: center;"}
   `}
 `

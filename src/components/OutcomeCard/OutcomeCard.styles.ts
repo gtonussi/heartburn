@@ -1,11 +1,9 @@
 import styled from "styled-components"
 
-import * as I from "./OutcomeCard.interfaces"
-
-export const OutcomeCardContainer = styled.article<I.OutcomeCardContainer>`
+export const OutcomeCardContainer = styled.article`
   background-color: #fff;
   box-shadow: 0 0 1rem #416172;
-  display: ${({ isActive }) => (isActive ? "flex" : "none")};
+  display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;

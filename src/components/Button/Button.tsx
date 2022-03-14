@@ -6,17 +6,17 @@ import * as S from "./Button.styles"
 export const Button: React.FC<I.ButtonProps> = ({
   borderRadius = "square",
   buttonType = "primary",
+  checked = false,
   children,
   disabled = false,
   icon,
   onClick,
-  isChecked = false,
 }) => {
   return (
     <S.ButtonContainer
       borderRadius={borderRadius}
       buttonType={buttonType}
-      isChecked={isChecked}
+      checked={checked}
       disabled={disabled}
       icon={icon}
       onClick={onClick}
@@ -25,7 +25,7 @@ export const Button: React.FC<I.ButtonProps> = ({
       {icon && <span />}
       {children}
       {icon && icon}
-      {!icon && isChecked && <Checked />}
+      {!icon && checked && <Checked />}
     </S.ButtonContainer>
   )
 }

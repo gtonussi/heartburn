@@ -1,11 +1,9 @@
 import styled from "styled-components"
 
-import * as I from "./QuestionCard.interfaces"
-
-export const QuestionCardContainer = styled.article<I.QuestionCardContainer>`
+export const QuestionCardContainer = styled.article`
   background-color: #fff;
   box-shadow: 0 0 1rem #416172;
-  display: ${({ isActive }) => (isActive ? "flex" : "none")};
+  display: flex;
   flex-direction: column;
   height: 100%;
   justify-content: space-between;

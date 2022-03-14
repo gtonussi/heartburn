@@ -22,7 +22,10 @@
     "isolatedModules": true,
     "jsx": "react-jsx",
     "baseUrl": "src",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "cypress"
+    ]
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "src/**/*"],
   "exclude": ["node_modules"]

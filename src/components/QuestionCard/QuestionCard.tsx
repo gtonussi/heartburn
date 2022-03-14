@@ -7,7 +7,6 @@ import * as I from "./QuestionCard.interfaces"
 import * as S from "./QuestionCard.styles"
 
 export const QuestionCard: React.FC<I.QuestionCardProps> = ({
-  isActive,
   question,
   title,
   total,
@@ -122,7 +121,7 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
   }
 
   return (
-    <S.QuestionCardContainer isActive={isActive}>
+    <S.QuestionCardContainer data-cy="question-card">
       <S.QuestionCardHeader>
         <S.QuestionCardTitle>
           {/* Changing opacity instead of rendering only if true
@@ -159,7 +158,7 @@ export const QuestionCard: React.FC<I.QuestionCardProps> = ({
               buttonType="secondary"
               borderRadius="round"
               onClick={() => setCurrentAnswer(answer.id)}
-              isChecked={currentAnswer === answer.id}
+              checked={currentAnswer === answer.id}
               // eslint-disable-next-line prettier/prettier
             >
               {answer.label}

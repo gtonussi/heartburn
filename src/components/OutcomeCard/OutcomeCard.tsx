@@ -6,7 +6,6 @@ import * as I from "./OutcomeCard.interfaces"
 import * as S from "./OutcomeCard.styles"
 
 export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
-  isActive,
   outcome,
   title,
 }) => {
@@ -46,7 +45,7 @@ export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
   }
 
   return (
-    <S.OutcomeCardContainer isActive={isActive}>
+    <S.OutcomeCardContainer data-cy="outcome-card">
       <S.OutcomeCardHeader>
         <S.OutcomeCardTitle>
           <button
@@ -71,7 +70,13 @@ export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
         <hr />
         <p>{outcome.text}</p>
         {outcome.show_booking_button && (
-          <Button icon={<ArrowForward />}>Book a meeting</Button>
+          <Button
+            icon={<ArrowForward />}
+            onClick={() => window.open("https://www.kry.se/", "_blank")}
+            // eslint-disable-next-line prettier/prettier
+          >
+            Book a meeting
+          </Button>
         )}
       </S.OutcomeCardBody>
 
