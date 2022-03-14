@@ -22,6 +22,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: #6accba;
     color: #416172;
     font: 400 14px Montserrat, sans-serif;
+    overflow: hidden;
 
     @media (min-width: 476px) {
       font: 400 16px Montserrat, sans-serif;
