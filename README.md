@@ -1,62 +1,39 @@
-# React Strict TS Eslint Prettier Husky Starter
+# Amazing Links!
 
+<p align="center" style="text-align: center;">
+  <samp>
+    Coded by Giovanni Tonussi.<br>
+    Thanks for checking this out!<br>
+    Please take a minute to read about infrastructure and instructions:
+  </samp>
+</p>
 
-## Folder Structure
+---------------------------
 
-- components: Place all your components there. Each on its own folder. Child components belong on their parent folder unless they are used by another component. Export from an index.ts file.
+### Infrastructure:
 
-- constants: Files for different types of constants you might need on your app. Export from an index.ts file.
+This project was created with ```create-react-app``` and boilerplate ```React-Strict-TS-Eslint-Prettier-Husky-Starter```.
 
-- hooks: Each hook belongs on its own file and should have its own named export. Export from an index.ts file.
+All styling was made with the beloved CSS-In-JS ```styled-components```.
 
-- types: Types that may be globally needed. Not to confuse with components props. Those should be close with each particular component.
+Also powered by ```typescript```.
 
-- utils: Utility functions that serve multiple purpose and might have a re-use. 
+### Features:
 
+- Typescript;
+- Storybook available;
+- Testing with Cypress;
+- CI/CD - ship to production with one push;
 
----
+### IMPORTANT:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Below are instructions to run this application.
 
-## Available Scripts
+- Open terminal/cmd on unzipped folder
+- Run: *yarn install* or *npm install*
+- Preview with: *yarn start* or *npm run start*
+- View storybook with: *yarn storybook* or *npm run storybook*
+- View testing interface with: *yarn cypress* or *npm run cypress*
+- Deploy to Vercel pushing to master for production, or any other branch for development.
 
-In the project directory, you can run:
-
-### `yarn start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### SPECIAL THANKS TO KRY!
