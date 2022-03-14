@@ -33,7 +33,7 @@ Below are instructions to run this application.
 - Run: *yarn install* or *npm install*
 - Preview with: *yarn start* or *npm run start*
 - View storybook with: *yarn storybook* or *npm run storybook*
-- View testing interface with: *yarn cypress* or *npm run cypress*
+- View testing interface with: *yarn cypress* or *npm run cypress* (application must be running locally)
 - Deploy to Vercel pushing to master for production, or any other branch for development.
 
 ### SPECIAL THANKS TO KRY!

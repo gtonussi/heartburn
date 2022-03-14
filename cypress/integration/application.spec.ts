@@ -7,6 +7,20 @@ import heartburn from "data/heartburn.json"
 describe("Appplication", () => {
   const { questions, outcomes } = heartburn
 
+  const doButton1Next = () => {
+    cy.get(
+      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
+    ).click()
+    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
+  }
+
+  const doButton2Next = () => {
+    cy.get(
+      "[data-cy='question-card'] > div:nth-child(2) button:nth-child(2)",
+    ).click()
+    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
+  }
+
   it("should render the main component", () => {
     cy.visit("/")
     cy.get("[data-cy='main'").should("be.visible")
@@ -49,42 +63,15 @@ describe("Appplication", () => {
 
   it("should present different outcomes at the end of questionnaire", () => {
     // Answers 9 questions to get minimum score
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:nth-child(2)",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:nth-child(2)",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:nth-child(2)",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:nth-child(2)",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
+    doButton2Next()
+    doButton1Next()
+    doButton1Next()
+    doButton1Next()
+    doButton1Next()
+    doButton1Next()
+    doButton2Next()
+    doButton2Next()
+    doButton2Next()
 
     // Checks if first outcome is presented
     cy.get("[data-cy='question-card']").should("not.exist")
@@ -94,14 +81,8 @@ describe("Appplication", () => {
     // Goes back 2 questions to increase score and get second outcome
     cy.get("[data-cy='outcome-card'] > div:nth-child(1) button").click()
     cy.get("[data-cy='question-card'] > div:nth-child(1) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
+    doButton1Next()
+    doButton1Next()
 
     // Checks if second outcome is presented
     cy.get("[data-cy='question-card']").should("not.exist")
@@ -112,18 +93,9 @@ describe("Appplication", () => {
     cy.get("[data-cy='outcome-card'] > div:nth-child(1) button").click()
     cy.get("[data-cy='question-card'] > div:nth-child(1) button").click()
     cy.get("[data-cy='question-card'] > div:nth-child(1) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
-    cy.get(
-      "[data-cy='question-card'] > div:nth-child(2) button:first-child",
-    ).click()
-    cy.get("[data-cy='question-card'] > div:nth-child(3) button").click()
+    doButton1Next()
+    doButton1Next()
+    doButton1Next()
 
     // Checks if third outcome is presented
     cy.get("[data-cy='question-card']").should("not.exist")
