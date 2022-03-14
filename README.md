@@ -1,6 +1,6 @@
-# Amazing Links!
+# Heartburn Checker
 
-<p align="center" style="text-align: center;">
+<p>
   <samp>
     Coded by Giovanni Tonussi.<br>
     Thanks for checking this out!<br>
