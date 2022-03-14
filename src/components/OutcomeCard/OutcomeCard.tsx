@@ -29,18 +29,12 @@ export const OutcomeCard: React.FC<I.OutcomeCardProps> = ({
   }
 
   const handlePreviousButton = () => {
-    // Updates the breadcrumbs to register user's activity.
     setBreadcrumbs(getNewBreadcrumb())
 
-    // Updates the currentQuestion passing the last item
-    // of breadcrumb, and present it to user.
     setCurrentQuestion(breadcrumbs[breadcrumbs.length - 1].question)
 
-    // Erases the result
     setResult("")
 
-    // Finally, sets the currentAnswer to none,
-    // so it is ready for a new interaction.
     setCurrentAnswer("")
   }
 
